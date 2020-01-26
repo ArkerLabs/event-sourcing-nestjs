@@ -4,7 +4,10 @@ Event Sourcing for Nestjs
 
 Library that implements event sourcing using NestJS and his CQRS library.
 
-
+## Features
+* **StoreEventBus**: A class that replaces Nest's EventBus to also persists events in mongodb.
+* **ViewUpdaterHandler**: The EventBus will also delegate the Events to his View Updaters, so you can update your read database.
+* **Replay**: You can re-run stored events. This will only trigger the view updater handlers to reconstruct your read db.
 
 ## State of the art
 ![State of the art](https://raw.githubusercontent.com/ArkerLabs/event-sourcing-nestjs/master/docs/state.jpg)
