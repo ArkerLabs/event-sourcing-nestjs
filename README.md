@@ -87,4 +87,4 @@ npm run reconstruct-view-db mongodb://localhost:27017/eventstore
 You can find a full example [here](https://github.com/ArkerLabs/event-sourcing-nestjs-example).
 
 ## TODOs
-* Use snapshot, so we can reconstruct the DB faster.
+* Use snapshots, so we can reconstruct the DB faster.
