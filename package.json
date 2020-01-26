@@ -1,7 +1,7 @@
 {
   "name": "event-sourcing-nestjs",
   "version": "1.0.0",
-  "description": "NestJS module for implementing Event Soucing.",
+  "description": "NestJS module for implementing Event Sourcing.",
   "main": "index.js",
   "scripts": {
     "prebuild": "rm -rf dist",
@@ -44,5 +44,5 @@
   "bugs": {
     "url": "https://github.com/ArkerLabs/event-sourcing-nestjs/issues"
   },
-  "homepage": "https://github.com/ArkerLabs/event-soutcing-nestjs#readme"
+  "homepage": "https://github.com/ArkerLabs/event-sourcing-nestjs#readme"
 }
