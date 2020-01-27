@@ -75,6 +75,17 @@ export class UserCreatedUpdater implements IViewUpdater<UserCreatedEvent> {
 }
 ```
 
+### Events
+Finally, your events must extend the abstract class StorableEvent.
+
+```ts
+export class UserCreatedEvent extends StorableEvent {
+    eventAggregate = 'license';
+    eventVersion = 1;
+    id = '_id_';
+}
+```
+
 ## Reconstructing the view db
 
 ```ts
