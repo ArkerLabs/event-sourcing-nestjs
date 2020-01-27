@@ -6,6 +6,7 @@ Library that implements event sourcing using NestJS and his CQRS library.
 
 ## Features
 * **StoreEventBus**: A class that replaces Nest's EventBus to also persists events in mongodb.
+* **StoreEventPublisher**: A class that replaces Nest's EventPublisher.
 * **ViewUpdaterHandler**: The EventBus will also delegate the Events to his View Updaters, so you can update your read database.
 * **Replay**: You can re-run stored events. This will only trigger the view updater handlers to reconstruct your read db.
 
@@ -55,6 +56,7 @@ export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
 
 }
 ```
+Or use **StoreEventPublisher** if you want to dispatch event from your AggregateRoot.
 
 ### View updaters
 
