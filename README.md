@@ -76,14 +76,9 @@ export class UserCreatedUpdater implements IViewUpdater<UserCreatedEvent> {
 ```
 
 ## Reconstructing the view db
-Add this script to your package.json:
-```json
-"reconstruct-view-db": "ts-node -r tsconfig-paths/register node_modules/event-sourcing-nestjs/src/scripts/reconstruct-view-db.ts"
-```
 
-And whenever you want to reconstruct your view db run:
-```bash
-npm run reconstruct-view-db mongodb://localhost:27017/eventstore
+```ts
+await ReconstructViewDb.run(await NestFactory.create(AppModule.forRoot()));
 ```
 
 
