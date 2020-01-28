@@ -95,7 +95,7 @@ await ReconstructViewDb.run(await NestFactory.create(AppModule.forRoot()));
 
 
 ## Example
-You can find a full example [here](https://github.com/ArkerLabs/event-sourcing-nestjs-example).
+You can find a working example [here](https://github.com/ArkerLabs/event-sourcing-nestjs-example).
 
 ## TODOs
 * Use snapshots, so we can reconstruct the DB faster.
