@@ -22,6 +22,8 @@ npm install event-sourcing-nestjs @nestjs/cqrs --save
 ## Usage
 
 ### Importing
+
+app.module.ts
 ```ts
 import { Module } from '@nestjs/common';
 import { EventSourcingModule } from 'event-sourcing-nestjs';
@@ -34,6 +36,19 @@ import { EventSourcingModule } from 'event-sourcing-nestjs';
   ],
 })
 export class ApplicationModule {}
+```
+
+Using it in your modules
+```ts
+import { Module } from '@nestjs/common';
+import { EventSourcingModule } from 'event-sourcing-nestjs';
+
+@Module({
+  imports: [
+    EventSourcingModule.forFeature(),
+  ],
+})
+export class UserModule {}
 ```
 
 ### Event emitter
