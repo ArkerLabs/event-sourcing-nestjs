@@ -95,7 +95,7 @@ Finally, your events must extend the abstract class StorableEvent.
 
 ```ts
 export class UserCreatedEvent extends StorableEvent {
-    eventAggregate = 'license';
+    eventAggregate = 'user';
     eventVersion = 1;
     id = '_id_';
 }
