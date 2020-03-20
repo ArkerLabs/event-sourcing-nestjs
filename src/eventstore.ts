@@ -22,11 +22,22 @@ export class EventStore {
         return this.eventStoreLaunched;
     }
 
+    public async getEvents(aggregate: string, id: string): Promise<StorableEvent[]> {
+        const that = this;
+        return new Promise<StorableEvent[]>((resolve) => {
+            this.eventstore.getFromSnapshot(this.getAgrregateId(aggregate, id), function(err, snapshot, stream) {
+                // snapshot.data; // Snapshot
+                resolve(stream.events.map((event) => that.getStorableEventFromPayload(event.payload)));
+            });
+        });
+    }
+
     public async getEvent(index: number): Promise<StorableEvent> {
+        const that = this;
         return new Promise<StorableEvent>((resolve, reject) => {
             this.eventstore.getEvents(index, 1, (err, events) => {
                 if (events.length > 0) {
-                    resolve(events[0].payload);
+                    resolve(that.getStorableEventFromPayload(events[0].payload));
                 } else {
                     resolve(null);
                 }
@@ -41,7 +52,7 @@ export class EventStore {
                 return;
             }
             this.eventstore.getEventStream({
-                aggregateId: event.eventAggregate + '-' + event.id,
+                aggregateId: this.getAgrregateId(event.eventAggregate, event.id),
                 aggregate: event.eventAggregate,
               }, (err, stream) => {
                 if (err) {
@@ -57,5 +68,18 @@ export class EventStore {
                 });
             });
         });
+    }
+
+    // Monkey patch to obtain event 'instances' from db
+    private getStorableEventFromPayload(payload: any): StorableEvent {
+        const event = payload;
+        event.constructor = {
+            name: event.eventName,
+        };
+        return event;
+    }
+
+    private getAgrregateId(aggregate: string, id: string): string {
+        return aggregate + '-' + id;
     }
 }
