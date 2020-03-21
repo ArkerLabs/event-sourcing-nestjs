@@ -76,7 +76,7 @@ export class EventStore {
         event.constructor = {
             name: event.eventName,
         };
-        return event;
+        return Object.create(event);
     }
 
     private getAgrregateId(aggregate: string, id: string): string {

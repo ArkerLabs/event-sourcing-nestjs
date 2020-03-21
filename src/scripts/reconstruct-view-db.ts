@@ -22,9 +22,6 @@ export class ReconstructViewDb {
 
         // tslint:disable-next-line: no-conditional-assignment
         while (event = await eventStore.getEvent(index)) {
-            event.constructor = {
-                name: event.eventName,
-            };
             await viewUpdater.run(event);
             index++;
         }
