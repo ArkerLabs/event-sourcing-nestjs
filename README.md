@@ -120,10 +120,11 @@ await ReconstructViewDb.run(await NestFactory.create(AppModule.forRoot()));
 
 
 
-## Example
+## Examples
 You can find a working example using the Materialized View pattern [here](https://github.com/ArkerLabs/event-sourcing-nestjs-example).
 
 Also a working example with Nest aggregates working [here](https://github.com/Nytyr/nest-cqrs-eventsourcing-example).
 
 ## TODOs
+* Write a better documentation explaining patterns, methods, etc.
 * Use snapshots, so we can reconstruct the aggregates faster.
