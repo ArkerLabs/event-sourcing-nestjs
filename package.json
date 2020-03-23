@@ -1,6 +1,6 @@
 {
   "name": "event-sourcing-nestjs",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "NestJS module for implementing Event Sourcing.",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,9 @@
     "prepublish:npm": "npm run build",
     "publish:npm": "npm publish --access public",
     "prepublish:next": "npm run build",
-    "publish:next": "npm publish --access public --tag next"
+    "publish:next": "npm publish --access public --tag next",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix && npm run prettier",
+    "prettier": "prettier --write 'src/*.{ts, js}'"
   },
   "dependencies": {
     "@types/node": "^13.5.0",
@@ -21,11 +23,17 @@
     "@nestjs/core": "^6.7.2",
     "@nestjs/cqrs": "^6.1.0",
     "@nestjs/platform-express": "^6.11.1",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "prettier": "^2.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.4",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.3"
   },
   "repository": {
     "type": "git",

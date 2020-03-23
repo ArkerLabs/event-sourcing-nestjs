@@ -9,8 +9,6 @@ export class ReconstructViewDb {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        // TODO If we're reconstructing don't let the api/graphql send new commands
-
         const eventStore = app.get(EventStore);
         const viewUpdater = app.get(ViewUpdater);
 
@@ -20,13 +18,11 @@ export class ReconstructViewDb {
         let event;
         let index = 0;
 
-        // tslint:disable-next-line: no-conditional-assignment
         while (event = await eventStore.getEvent(index)) {
             await viewUpdater.run(event);
             index++;
         }
 
-        // tslint:disable-next-line: no-console
         console.log('View db has been restored!');
     }
 }
