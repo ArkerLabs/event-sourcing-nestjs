@@ -19,6 +19,8 @@
     "mongodb": "^3.5.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@nestjs/common": "6.10.14",
     "@nestjs/core": "^6.7.2",
     "@nestjs/cqrs": "^6.1.0",
@@ -28,6 +30,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
+    "husky": "^4.2.3",
     "prettier": "^2.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.4",
@@ -51,5 +54,10 @@
   "bugs": {
     "url": "https://github.com/ArkerLabs/event-sourcing-nestjs/issues"
   },
-  "homepage": "https://github.com/ArkerLabs/event-sourcing-nestjs#readme"
+  "homepage": "https://github.com/ArkerLabs/event-sourcing-nestjs#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
 }
