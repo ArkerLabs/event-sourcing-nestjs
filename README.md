@@ -1,10 +1,11 @@
-Event Sourcing for Nestjs
+✨ Event Sourcing for Nestjs
 =====
-[![npm version](https://badge.fury.io/js/event-sourcing-nestjs.svg)](https://badge.fury.io/js/event-sourcing-nestjs)
+
+[![](https://badgen.net/npm/v/event-sourcing-nestjs)](https://www.npmjs.com/package/event-sourcing-nestjs) ![](https://badgen.net/npm/dt/event-sourcing-nestjs) 
 
 Library that implements event sourcing using NestJS and his CQRS library.
 
-## Features
+## ⭐️ Features
 * **StoreEventBus**: A class that replaces Nest's EventBus to also persists events in mongodb.
 * **StoreEventPublisher**: A class that replaces Nest's EventPublisher.
 * **ViewUpdaterHandler**: The EventBus will also delegate the Events to his View Updaters, so you can update your read database.
@@ -12,7 +13,7 @@ Library that implements event sourcing using NestJS and his CQRS library.
 * **EventStore**: Get history of events for an aggregate.
 
 
-## Contents
+## 📖 Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -27,7 +28,7 @@ Library that implements event sourcing using NestJS and his CQRS library.
 - [Reconstructing the view db](#reconstructing-the-view-db)
 - [Examples](#examples)
 
-## Installation
+## 🛠 Installation
 ```bash
 npm install event-sourcing-nestjs @nestjs/cqrs --save
 ```
@@ -242,7 +243,7 @@ Also a working example with Nest aggregates working [here](https://github.com/Ny
 * Use snapshots, so we can reconstruct the aggregates faster.
 
 
-## Stay in touch
+## 📝 Stay in touch
 
 - Author - [Nytyr](https://keybase.io/nytyr)
 - Website - [https://arkerlabs.com/](https://arkerlabs.com/)
