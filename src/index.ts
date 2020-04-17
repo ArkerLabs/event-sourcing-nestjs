@@ -5,3 +5,4 @@ export * from './store-event-bus';
 export * from './store-event-publisher';
 export * from './view';
 export * from './interfaces';
+export * from './aggregate-repository';
