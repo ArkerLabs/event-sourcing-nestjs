@@ -83,12 +83,10 @@ export class EventStore {
 
   // Monkey patch to obtain event 'instances' from db
   private getStorableEventFromPayload(payload: any): StorableEvent {
-    const event = payload;
-    event.constructor = {
-      name: event.eventName,
-    };
+    const eventPlain = payload;
+    eventPlain.constructor = { name: eventPlain.eventName };
 
-    return Object.create(event);
+    return Object.assign(Object.create(eventPlain), eventPlain);
   }
 
   private getAgrregateId(aggregate: string, id: string): string {
