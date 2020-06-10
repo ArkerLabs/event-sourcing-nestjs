@@ -72,7 +72,7 @@ export class EventStore {
           stream.addEvent(event);
           stream.commit(commitErr => {
             if (commitErr) {
-              reject(err);
+              reject(commitErr);
             }
             resolve();
           });
