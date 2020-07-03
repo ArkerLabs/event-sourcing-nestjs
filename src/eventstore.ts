@@ -1,14 +1,26 @@
 import { StorableEvent } from './interfaces/storable-event';
 import * as eventstore from 'eventstore';
+import * as url from 'url';
 
 export class EventStore {
   private readonly eventstore;
   private eventStoreLaunched = false;
 
   constructor(mongoURL: string) {
+    let ssl = false;
+
+    const parsed = url.parse(mongoURL, true);
+
+    if (parsed.query && parsed.query.ssl !== undefined && parsed.query.ssl === 'true') {
+      ssl = true;
+    }
+
     this.eventstore = eventstore({
       type: 'mongodb',
       url: mongoURL,
+      options: {
+        ssl: ssl,
+      },
     });
     this.eventstore.init(err => {
       if (err) {
