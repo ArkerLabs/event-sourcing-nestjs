@@ -215,9 +215,9 @@ This view updaters will be used to recontruct the db if needed.
 Read more info about the Materialized View pattern [here](https://docs.microsoft.com/en-gb/azure/architecture/patterns/materialized-view)
 
 ```ts
-import { IViewUpdater, ViewUpdater } from 'event-sourcing-nestjs';
+import { IViewUpdater, ViewUpdaterHandler } from 'event-sourcing-nestjs';
 
-@ViewUpdater(UserCreatedEvent)
+@ViewUpdaterHandler(UserCreatedEvent)
 export class UserCreatedUpdater implements IViewUpdater<UserCreatedEvent> {
 
     async handle(event: UserCreatedEvent) {
