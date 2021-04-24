@@ -45,7 +45,7 @@ import { EventSourcingModule } from 'event-sourcing-nestjs';
 @Module({
   imports: [
     EventSourcingModule.forRoot({
-      mongoURL: 'mongodb://localhost:27017/eventstore',
+      eventstore: undefined /* By default the eventstore will use an inmemory Storage. To see all possible configurations, please visit https://www.npmjs.com/package/eventstore#provide-implementation-for-storage */
     }),
   ],
 })
