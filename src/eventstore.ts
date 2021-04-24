@@ -1,27 +1,28 @@
 import { StorableEvent } from './interfaces/storable-event';
 import * as eventstore from 'eventstore';
-import * as url from 'url';
+import {
+  EventStoreConfigAzureTable,
+  EventStoreConfigDynamoDb,
+  EventStoreConfigElasticSearch,
+  EventStoreConfigMongoDb,
+  EventStoreConfigRedis,
+  EventStoreConfigTingoDb,
+} from './interfaces/eventstore.options';
 
 export class EventStore {
   private readonly eventstore;
   private eventStoreLaunched = false;
 
-  constructor(mongoURL: string) {
-    let ssl = false;
-
-    const parsed = url.parse(mongoURL, true);
-
-    if (parsed.query && parsed.query.ssl !== undefined && parsed.query.ssl === 'true') {
-      ssl = true;
-    }
-
-    this.eventstore = eventstore({
-      type: 'mongodb',
-      url: mongoURL,
-      options: {
-        ssl: ssl,
-      },
-    });
+  constructor(
+    config?:
+      | EventStoreConfigMongoDb
+      | EventStoreConfigRedis
+      | EventStoreConfigTingoDb
+      | EventStoreConfigElasticSearch
+      | EventStoreConfigAzureTable
+      | EventStoreConfigDynamoDb,
+  ) {
+    this.eventstore = eventstore(config);
     this.eventstore.init(err => {
       if (err) {
         throw err;
